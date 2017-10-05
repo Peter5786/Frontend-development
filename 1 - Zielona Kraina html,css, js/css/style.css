@@ -1,0 +1,379 @@
+/*przesuniecie bo obrazek*/
+body {
+	/*padding-top: 120px;*/
+  background: #ffffff;
+}
+
+/*ramka headera*/
+header nav {
+	margin-top: 30px;
+  background: url(../img/navbar.png) no-repeat top center;
+}
+
+header .navbar-default {
+  padding: 0px 0;
+  background-color: transparent;
+  border: 0;
+  margin-left: 50px;
+}
+
+header .navbar-default .navbar-toggle {
+  border-color: #008036;
+  background-color: #ffffff;
+}
+
+header .navbar-default .navbar-toggle .icon-bar {
+  background-color: #008036;
+}
+
+header .navbar-default .navbar-nav > li > a,
+header .navbar-default .navbar-nav > li > a:hover,
+header .navbar-default .navbar-nav > li > a:focus {
+  color: #555555;/*todo zmienic kolor i ustawic czcionke*/
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 40px 8px 15px 13px;
+}
+
+
+.menu{
+  width: 100%;
+  position:fixed;
+
+  color: white;
+  background-color: white;
+  z-index: 100;
+}
+
+
+@media (max-width: 1200px) {
+  
+  header .navbar-default {
+    margin-left: 0;
+  }
+  header .navbar-header {
+    float: none;
+  }
+  header .navbar-toggle {
+    display: block;
+    margin-top: 35px;
+  }
+  header .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  header .navbar-collapse {
+    border: 0;
+  }
+  header .navbar-collapse.collapse {
+    display: none !important;
+  }
+  header .navbar-collapse.collapse.in {
+    display: block !important;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+  header .navbar-nav {
+    float: none !important;
+    margin: 20px -15px 8px;
+  }
+  header .navbar-nav li:first-child:before {
+    content: '\2022';
+  }
+  header .navbar-nav > li {
+    float: none;
+  }
+  header .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/*obrazek na pelnej dlugosci ekranu*/
+.foto {
+  background-image: url("../img/dzieci_banner.png");
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1000;
+  padding-left: 0;
+  padding-right: 0;
+  height: 770px;
+}
+
+
+/*strzalka w dol na zielono */
+.strzalka_w_dol {
+	padding-top: 10px;
+	padding-bottom: 0;
+	text-align: center;
+	color: #008036;
+ 	font-size: 25px;
+}
+
+/*section.aktualnosci {
+  background: #f5f5f5;
+  margin-bottom: 0;
+  padding-bottom: 35px;
+}*/
+
+section .container .naglowek {  
+  background: url("../img/jasny.png") no-repeat center center;
+  height: 131px;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-top: 65px;
+  color: #008036;
+  margin: 35px 0;
+}
+
+.szaryObrazek {
+  background: url("../img/szary.png") no-repeat center center;
+  height: 131px;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-top: 65px;
+  color: #008036;
+  margin: 35px 0;
+}
+
+section .container .tlo p {
+  padding-bottom: 15px;
+  font-size: 18px;
+  text-align: justify;
+  line-height: 28px;
+  color: #555555;
+}
+
+
+section.szary {
+  /*background: #f5f5f5;*/
+  background: rgb(236, 236, 236);
+
+  margin-bottom: 0;
+  padding-bottom: 35px;
+}
+
+
+
+
+
+section .container .informacje {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+section .container .informacje.arrow {
+  text-align: center;
+  color: #008036;
+  font-size: 25px;
+  padding-top: 35px;
+}
+
+section .container .informacje .obrazek {
+  border: 1px solid #81bc00;
+  padding: 20px;
+}
+
+section .container .informacje .obrazek img {
+  width: 100%;
+}
+
+section .container .informacje .text {
+  padding: 60px 20px 0 20px;
+}
+
+section .container .informacje .text strong {
+  display: block;
+  font-weight: bold;
+  color: #008036;
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+section .container .informacje .text p {
+  display: block;
+  font-size: 11px;
+  padding-bottom: 20px;
+}
+
+section .container .informacje .text span {
+  color: #008036;
+}
+
+section .container .profil_warsztatow dl {
+  font-size: 15px;
+}
+
+section .container .profil_warsztatow dt {
+  width: 20%;
+  padding-bottom: 5px;
+  color: #008036;
+}
+
+section .container .profil_warsztatow dd {
+  margin-left: 22%;
+  padding-bottom: 5px;
+}
+
+section .container .profil_warsztatow dd a {
+  font-weight: bold;
+  color: #008036;
+}
+
+section .container .profil_warsztatow p {
+  text-align: center;
+}
+
+
+hr {
+  border: 0;
+  margin: 0;
+  height: 16px;
+  background: url("../img/hr.png") repeat-x;
+}
+
+section .container .galeria {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+section .container .galeria img {
+  width: 100%;
+}
+
+section .container .galeria .opis {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  padding: 120px 10px 10px 10px;
+  background: rgba(0, 90, 15, 0.75);
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  opacity: 0;
+}
+
+section .container .galeria .opis:hover {
+  opacity: 1;
+}
+
+section .container .przepisy {
+  text-align: center;
+  padding-top: 35px;
+}
+
+section .container .przepisy span {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-top: 25px;
+}
+
+
+ section.zielony {
+    background: url("../img/zielone_tlo.png") repeat center top;
+    height: inherit;
+  }
+
+  section.zielony .container .naglowek {
+  background: url("../img/zielony.png") no-repeat center center;
+  color: #ffffff;
+}
+
+
+
+
+
+
+section .zmiejszenie {
+  padding: 0 10%;
+}
+section .container .dla_rodzicow {
+  position: relative;
+  color: #555555;
+  text-transform: uppercase;
+  font-size: 18px;
+  min-height: 125px;
+  padding: 35px 45px 0 45px;
+}
+
+section .container .dla_rodzicow.footer {
+  text-align: center;
+}
+
+section .container .dla_rodzicow .cross {
+  position: absolute;
+}
+
+section .container .dla_rodzicow .cross.topleft {
+  top: -20px;
+  left: -20px;
+}
+
+section .container .dla_rodzicow .cross.topright {
+  top: -20px;
+  right: -20px;
+}
+
+section .container .dla_rodzicow .cross.bottomleft {
+  bottom: -20px;
+  left: -20px;
+}
+
+section .container .dla_rodzicow .cross.bottomright {
+  bottom: -20px;
+  right: -20px;
+}
+
+section .container .organizatorzy {
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+section .container .organizatorzy span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #555555;
+  padding-bottom: 30px;
+}
+
+footer {
+  margin-top: 35px;
+  padding: 57px 0;
+  background: #f5f5f5;
+  text-align: center;
+  border-bottom: 47px solid #018136;
+}
+
+
+a.top {
+  display: none;
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  background: #008036;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 85px;
+  font-size: 30px;
+  color: #ffffff;
+  border-radius: 38px;
+}
+
+a.close {
+  display: none;
+}

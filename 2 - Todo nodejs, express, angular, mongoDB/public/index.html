@@ -1,0 +1,110 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html >
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>FD 2</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    
+    <!-- load bootstrap -->
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            padding-top: 50px;
+        }
+
+        #todo-list {
+            margin-bottom: 30px;
+        }
+
+        #todo-form {
+            margin-bottom: 50px;
+        }
+
+        .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+        .toggle.ios .toggle-handle { border-radius: 20px; }
+    </style>
+
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION -->
+<body>
+<div ng-app="nodeTodo" ng-controller="mainController" class="container">
+
+<h1>Lista zadań</h1>
+
+<form>
+    <div class="row-fluid col-md-8 col-md-offset-2">   
+        <div class="form-group">
+            <div class="input-group ">
+                <input type="text" class="form-control" ng-model="formData.text">
+                <a class="input-group-btn btn btn-primary go inline" ng-click="createTodo()">Dodaj zadanie</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+    <!-- TODO LIST -->
+    <div id="todo-list" class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <!-- LOOP OVER THE TODOS IN $scope.todos -->
+            <div class="table-responsive">
+
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Lp.</th>
+                        <th>Zadanie</th>
+                        <th>Zrobione?</th>
+                        <th>
+                            <input type="checkbox" data-toggle="toggle" data-size="mini" data-style="ios" 
+                                data-on="Tak" data-off="Nie" ng-bind="nic">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="todo in todos">
+                        <td>{{$index+1}}</td>
+                        <td>{{ todo.text }}</td>
+                        <td>
+                            <input type="checkbox" ng-change="updateTodo(todo)" 
+                                ng-model="todo.done" data-toggle="toggle" 
+                                data-size="mini" data-style="ios" 
+                                data-on="Tak" data-off="Nie" id="{{$index+1}}">
+                        </td>
+                        <td><input type="button" ng-click="deleteTodo(todo._id)" value="Usuń" class="btn btn-danger"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <input type="checkbox" data-toggle="toggle" data-size="mini" data-style="ios" 
+                data-on="Tak" data-off="Nie" ng-bind="nic">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<head>
+    <title>Piłkarze</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script>
+    function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+      y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+      if(Number(n)==0){        
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+            if (x > y) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+            }
+        } else if (dir == "desc") {
+            if (x < y) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+            }
+        } 
+      }
+      else {
+          var x2=Number(x);
+          var y2=Number(y);
+          if (dir == "asc") {
+            if (x2 > y2) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+            }
+        } else if (dir == "desc") {
+            if (x2 < y2) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+            }
+        } 
+      }
+      
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+
+</head>
+
+<body>
+    <div class="col-md-offset-4 col-md-4">
+        <h1>Ranking piłkarzy</h1>
+        {{> dodaj }}
+    </div>
+    <div class="col-md-4"></div>
+    <hr>
+    <br/><br/><br/><br/><br/><br/>
+    <div>
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-striped"  id="myTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Piłkarz</th>
+                            <th onclick="sortTable(1)"><i class="fa fa-plus" aria-hidden="true"></i></th>
+                            <th onclick="sortTable(2)"><i class="fa fa-minus" aria-hidden="true"></i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    {{> ranking }}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<template name="ranking">
+    <tbody>
+        {{#each pobierzPilkarzy}} {{> pilkarz }} {{/each}}
+    </tbody>
+</template>
+
+<template name="pilkarz">
+    <tr>
+        <td>{{name}}</td>
+        <td>{{upScore}}</td>
+        <td>{{downScore}}</td>
+        <td>
+            <div class="btn-group btn-sm" role="group" >
+                <button type="button" class="btn btn-default btn-sm lapka_w_gore"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-default btn-sm lapka_w_dol"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-default btn-sm usun"><i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+        </td>
+    </tr>
+</template>
+
+<template name="dodaj">    
+        <form class="dodaj-pilkarza">
+            <div class="input-group">
+                <input type="text" name="name" class="form-control">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Dodaj</button>
+                </span>
+            </div>
+        </form>
+</template>
